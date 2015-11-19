@@ -7,7 +7,8 @@ var email = require('./Email');
 /** Sending Mail **/
 router.post("/sendMail", function(req, res, next) {
     console.log('In post/sendMail');
-    email.sendMail();
+    var data = email.sendMail();
+    res.end(data);
 });
 
 router.post("/upload", function(req, res, next){
