@@ -1,9 +1,12 @@
 <div>
+	<br>
+	<hr>
 	<form id="uploadFrm" enctype="multipart/form-data" method="POST" action="api/upload">
 		<div>
 			<input type="file" name="attachedFile">
-		</div>
-		<hr>
-		<input type="submit" value="Send Mail"></input>
+		</div><br>
+		<input type="submit" value="Upload file to local folder"></input>
 	</form>
+	<hr>
+	<button ng-click="vmEmailCtrl.sendMail()">Send Mail</button>
 </div>

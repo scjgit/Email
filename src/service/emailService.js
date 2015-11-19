@@ -14,14 +14,13 @@
 
 	EmailService.prototype = {
 
-		sendMail: function(mail){
+		sendMail: function(){
 			var self = this;
 			var deferred = self.$q.defer();
 			self.$http({
               	method: 'POST',
               	url: '/email/api/sendMail/',
-              	headers: { 'Content-Type': 'application/json' },
-			  	data: mail
+              	headers: { 'Content-Type': 'application/json' }
           	}).then(function(result) {
               	deferred.resolve(result.data);
           	});

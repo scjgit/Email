@@ -1,12 +1,13 @@
 var express = require('express');
 var router = express.Router();
-var config = require('./../../myConfig.json');
 var fs = require('fs');
-var nodemailer = require('nodemailer');
+var config = require('./../../myConfig.json');
+var email = require('./Email');
 
 /** Sending Mail **/
 router.post("/sendMail", function(req, res, next) {
     console.log('In post/sendMail');
+    email.sendMail();
 });
 
 router.post("/upload", function(req, res, next){
@@ -20,36 +21,8 @@ router.post("/upload", function(req, res, next){
             res.redirect('back');
         });
     });
-    sendMail();
     res.status(201);
 });
 
-// create reusable transporter object using SMTP transport
-var transporter = nodemailer.createTransport({
-    service: 'Mandrill',
-    auth: {
-        user: 'goingon26@gmail.com',
-        pass: 'going4misc'
-    }
-});
-
-var mailOptions = {
-    from: 'Test <sallapcjoseph@gmail.com>', // sender address
-    to: 'schackojoseph@expedia.com', // list of receivers
-    subject: 'Hello', // Subject line
-    text: 'Hello world', // plaintext body
-    html: '<b>Hello world ✔</b>' // html body
-};
-
-var sendMail = function(){
-    // send mail with defined transport object
-    transporter.sendMail(mailOptions, function(error, info){
-        if(error){
-            return console.log('Error: ', error);
-        }
-        console.log('Message sent: ' + info.response);
-
-    });
-}
 
 module.exports = router;
