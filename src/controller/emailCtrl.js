@@ -16,7 +16,7 @@
 		sendMail: function(){
 			var self = this;
 			console.log(this.file);
-			self.emailService.sendMail(self.file)
+			self.emailService.upload(self.file)
 			.then(function(data){
 				console.log(data);
 			},function(error){

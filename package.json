@@ -5,9 +5,13 @@
   "main": "UserManagmentSystem",
   "dependencies": {
     "body-parser": "^1.13.2",
+    "connect-busboy": "0.0.2",
     "express": "^4.13.0",
+    "fs": "0.0.2",
     "mongodb": "^1.4.38",
     "mongoskin": "^1.4.13",
+    "nodemailer": "^1.10.0",
+    "nodemailer-ses-transport": "^1.3.0",
     "q": "^1.4.1"
   },
   "devDependencies": {

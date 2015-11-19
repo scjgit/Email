@@ -1,4 +1,5 @@
 {
 	"port":"3000",
-	"contextroot":"/email"
+	"contextroot":"/email",
+  	"uploadFilePath":"/Users/schackojoseph/Desktop/Api"
 }

@@ -1,5 +1,9 @@
 @charset "UTF-8";
 
+body {
+  font-family: "Lucida Grande", "Trebuchet MS", sans-serif;
+}
+
 td, th{
   border: 1px solid;
   margin: 2px;
