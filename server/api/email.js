@@ -1,4 +1,5 @@
 var nodemailer = require('nodemailer');
+var Q = require('q');
 var config = require('./../../myConfig.json');
 
 function Email(){	
@@ -33,12 +34,17 @@ Email.prototype = {
 	},
 
 	sendMail: function(){
+		var deferred = Q.defer();
 		this.getTransporterInstance().sendMail(this.getMailOptions(), function(error, info){
 	        if(error){
-	            return console.log('Error: ', error);
+	        	console.log('Error: ', error);
+	        	deferred.reject(error);
+	        	return;
 	        }
 	        console.log('Message sent: ' + info.response);
+	        deferred.resolve(info.response);
     	});
+		return deferred.promise;
 	}
 
 }
