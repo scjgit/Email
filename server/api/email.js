@@ -1,4 +1,5 @@
 var nodemailer = require('nodemailer');
+var config = require('./../../myConfig.json');
 
 function Email(){	
 }
@@ -7,14 +8,14 @@ Email.prototype = {
 
 	getMailOptions: function(){
 		return {
-		    from: 'Test <xxxxx@gmail.com>', // sender address
+		    from: '<one-friend@gmail.com>', // sender address
 		    to: 'sallapcjoseph@gmail.com', // list of receivers
 		    subject: 'Hello', // Subject line
-		    text: 'Hello Worl', // plaintext body
-		    html: '<b>Hello world</b>', // html body
+		    text: 'Hello World', // plaintext body
+		    html: '<b>Hello World</b>', // html body
 		    attachments: [
 		    	{
-		    		path: 'E:/My Workspace/files/Cheat Codes.pdf'
+		    		path: config.uploadFilePath+'/files/*'
 		    	}
 		    ]
 		};
@@ -22,10 +23,10 @@ Email.prototype = {
 
 	getTransporterInstance: function(){
 		var transport = nodemailer.createTransport({
-		    service: 'gmail',
+		    service: config.email.service, //email service like gmail
 		    auth: {
-		        user: 'xxxxx', // username
-		        pass: 'xxxx' // password
+		        user: config.email.username, // username
+		        pass: config.email.password // password
 		    }
 		});
 		return transport;
