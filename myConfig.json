@@ -1,7 +1,7 @@
 {
 	"port":"3000",
 	"contextroot":"/email",
-  	"uploadFilePath":".",
+  	"uploadFilePath":"./files/",
   	"attachmentname":"attachment.txt",
   	"email": {
   		"service":"gmail",

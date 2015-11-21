@@ -19,7 +19,7 @@ router.post("/upload", function(req, res, next){
     req.pipe(req.busboy);
     req.busboy.on('file', function(fieldName, file, filename){
         console.log(filename);
-        fileStream = fs.createWriteStream(config.uploadFilePath+'/files/'+filename);
+        fileStream = fs.createWriteStream(config.uploadFilePath+filename);
         file.pipe(fileStream);
         fileStream.on('close', function(){
             res.redirect('back');

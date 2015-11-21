@@ -16,7 +16,7 @@ Email.prototype = {
 		    html: '<b>Hello World</b>', // html body
 		    attachments: [
 		    	{
-		    		path: config.uploadFilePath+'/files/'+config.attachmentname
+		    		path: config.uploadFilePath+config.attachmentname
 		    	}
 		    ]
 		};
